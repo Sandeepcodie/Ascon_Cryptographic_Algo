@@ -38,7 +38,7 @@ def save_rooms(rooms):
 
 def normalize_room(room):
     cleaned = "".join(ch for ch in room.strip().lower() if ch.isalnum() or ch in "-_")
-    return cleaned or "demo-room"
+    return cleaned or "secure-room"
 
 
 def new_device_keys(device_id):
@@ -179,7 +179,7 @@ st.set_page_config(page_title="ASCON Secure Communication Platform", layout="cen
 st.title("ASCON Secure Communication Platform")
 st.caption("Two-user public-key exchange with P-256 ECDH, HKDF-SHA256, Ed25519 signatures, and ASCON authenticated encryption.")
 
-room_id = normalize_room(st.text_input("Room code", value="ascon-demo"))
+room_id = normalize_room(st.text_input("Room code", value="secure-room-001"))
 role = st.radio("Choose your role", ["Receiver", "Sender"], horizontal=True)
 
 st.info("Open this same website in two browser tabs or on two devices. Use the same room code: one user selects Receiver, the other selects Sender.")

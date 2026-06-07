@@ -58,7 +58,7 @@ def load_settings(role):
         role=role,
         device_id=os.getenv("ASCON_DEVICE_ID", default_device),
         peer_id=os.getenv("ASCON_PEER_ID", default_peer),
-        namespace=os.getenv("ASCON_PROJECT_NAMESPACE", "ascon_secure_deploy_demo"),
+        namespace=os.getenv("ASCON_PROJECT_NAMESPACE", "ascon_secure_channel"),
         mqtt_host=os.getenv("ASCON_MQTT_HOST", "localhost"),
         mqtt_port=env_int("ASCON_MQTT_PORT", 8883 if env_bool("ASCON_MQTT_TLS", True) else 1883),
         mqtt_tls=env_bool("ASCON_MQTT_TLS", True),
@@ -70,6 +70,6 @@ def load_settings(role):
         key_dir=Path(os.getenv("ASCON_KEY_DIR", "keys")),
         registry_file=Path(os.getenv("ASCON_REGISTRY_FILE", "device_registry.json")),
         state_file=Path(os.getenv("ASCON_STATE_FILE", f"{role}_state.json")),
-        plaintext=os.getenv("ASCON_MESSAGE", "YOYO BHai").encode("utf-8"),
+        plaintext=os.getenv("ASCON_MESSAGE", "Secure ASCON message").encode("utf-8"),
         log_session_key=env_bool("ASCON_LOG_SESSION_KEY", False),
     )

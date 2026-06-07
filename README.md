@@ -1,6 +1,6 @@
-# ASCON Secure Deploy
+# ASCON Secure Communication System
 
-Deployable secure messaging starter using:
+Secure messaging system using:
 
 ```text
 P-256 ECDH shared secret
@@ -15,7 +15,7 @@ HKDF-SHA256
 ASCON authenticated encryption over MQTT
 ```
 
-This version adds the deployment pieces missing from a simple demo:
+The implementation includes the main components required for authenticated secure communication:
 
 - Stable per-device private keys
 - P-256 ECDH from Python `cryptography`
@@ -25,12 +25,12 @@ This version adds the deployment pieces missing from a simple demo:
 - MQTT username/password support
 - MQTT TLS support
 - Receiver replay-counter persistence
-- Docker Compose starter for a private Mosquitto broker
+- Docker Compose configuration for a private Mosquitto broker
 - Mosquitto ACL example for sender/receiver topic access
 
 ## Important Production Note
 
-This is a serious deployable starter, but ASCON itself is still implemented in local Python code. For a high-risk commercial or government system, use an audited ASCON implementation or a formally reviewed library.
+ASCON is implemented in local Python code for project-level verification and deployment testing. For high-risk commercial or government use, replace it with an audited ASCON implementation or a formally reviewed library.
 
 ## Files
 

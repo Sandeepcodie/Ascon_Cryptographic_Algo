@@ -75,7 +75,7 @@ def main():
     if len(sender.ascon_key) != 16:
         raise RuntimeError("ASCON key is not 128-bit")
 
-    plaintext = b"YOYO BHai"
+    plaintext = b"Secure ASCON message"
     packet = sender.encrypt(plaintext)
     decrypted = receiver.decrypt(packet)
     if decrypted != plaintext:
