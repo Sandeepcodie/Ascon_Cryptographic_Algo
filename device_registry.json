@@ -1,0 +1,14 @@
+{
+  "devices": {
+    "receiver_01": {
+      "device_id": "receiver_01",
+      "ecdh_public_key_b64": "BOj7ezd626UdjceLM+sakiExN3zJC0nKUbvrGuZbJy0Ym9Rmx/fwac1iJsdtH2EbiNdoJQMnJmHbPjLW1sY4LO4=",
+      "signing_public_key_b64": "JRP5ATTvr2sMLTebUd7r3t7ISxRGJr6jetqBQdybjHY="
+    },
+    "sender_01": {
+      "device_id": "sender_01",
+      "ecdh_public_key_b64": "BHIPEV6D+sNhOVG/xi0Cq5uy1kjYt3gWC0ldvOO1ODY1Pwb+Q5djnUbXKtbRww1OwaT1yceEwpy6ZcVxCgCIKPU=",
+      "signing_public_key_b64": "Qdn4qclsgeDEzw4IsT0y3mXxX+JdypyMqDQ2RaSvL3M="
+    }
+  }
+}

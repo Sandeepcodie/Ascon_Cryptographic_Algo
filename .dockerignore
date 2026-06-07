@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+vendor/
+keys/
+*_state.json
+device_registry.json
+deploy/mosquitto/certs/*.key

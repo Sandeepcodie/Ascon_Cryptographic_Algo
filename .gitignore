@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+
+keys/
+web_demo_keys/
+receiver_state.json
+sender_state.json
+web_demo_registry.json
+
+vendor/
+deploy/mosquitto/passwords
+
+.env
+.streamlit/secrets.toml
