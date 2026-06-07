@@ -7,6 +7,7 @@ web_demo_keys/
 receiver_state.json
 sender_state.json
 web_demo_registry.json
+room_store.json
 
 vendor/
 deploy/mosquitto/passwords
