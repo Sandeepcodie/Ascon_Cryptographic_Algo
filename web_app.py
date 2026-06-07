@@ -101,28 +101,37 @@ def run_secure_demo(message):
     }
 
 
-st.set_page_config(page_title="ASCON Secure Communication")
+st.set_page_config(page_title="ASCON Secure Communication", layout="centered")
 
 st.title("ASCON Secure Communication")
 st.caption("P-256 ECDH + HKDF-SHA256 + 128-bit ASCON authenticated encryption")
 
-message = st.text_input("Message", value="Hello from ASCON secure web deployment")
+st.subheader("Sender")
+message = st.text_input("Plaintext message", value="Hello from ASCON secure web deployment")
 
-if st.button("Run Secure Communication", type="primary"):
+if st.button("Encrypt and Send", type="primary"):
     try:
         result = run_secure_demo(message)
     except Exception as error:
         st.error(f"Secure communication failed: {error}")
     else:
-        st.success("Secure communication verified and decrypted successfully.")
-        st.write("**Security flow:** P-256 ECDH -> HKDF-SHA256 -> 128-bit ASCON key -> authenticated encryption")
-        st.write("**Session ID:**")
-        st.code(result["session_id"])
-        st.write("**ASCON Session Key:**")
-        st.code(result["ascon_key_hex"])
-        st.write("**Ciphertext:**")
+        st.success("Message encrypted, authenticated, verified, and decrypted by the receiver.")
+
+        st.subheader("Encrypted MQTT Packet")
+        st.write("Only ciphertext and authentication data are sent through the communication channel.")
+        st.write("**Ciphertext**")
         st.code(result["ciphertext_b64"])
-        st.write("**Authentication Tag:**")
+        st.write("**Authentication tag**")
         st.code(result["tag_b64"])
-        st.write("**Decrypted Message:**")
+
+        st.subheader("Receiver")
+        st.write("The receiver verifies the session, nonce, associated data, replay counter, and ASCON tag before decryption.")
+        st.write("**Recovered plaintext**")
         st.code(result["decrypted"])
+
+        with st.expander("Technical details"):
+            st.write("Security flow: P-256 ECDH -> HKDF-SHA256 -> 128-bit ASCON key -> authenticated encryption")
+            st.write("**Session ID**")
+            st.code(result["session_id"])
+            st.write("**Demo ASCON session key**")
+            st.code(result["ascon_key_hex"])
